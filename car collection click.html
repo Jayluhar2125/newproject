@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .car-item {
+            cursor: pointer;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .car-item:hover {
+            background-color: #e0e0e0;
+        }
+        .car-details {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            display: none;
+        }
+        .car-details.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Collection</h1>
+    <div id="carList">
+        <div class="car-item" onclick="openCar('toyota')">Toyota Camry</div>
+        <div class="car-item" onclick="openCar('honda')">Honda Civic</div>
+        <div class="car-item" onclick="openCar('ford')">Ford Mustang</div>
+    </div>
+    <div id="carDetails" class="car-details"></div>
+
+    <script>
+        const cars = {
+            toyota: { name: 'Toyota Camry', year: 2023, price: '$28,000' },
+            honda: { name: 'Honda Civic', year: 2023, price: '$26,000' },
+            ford: { name: 'Ford Mustang', year: 2023, price: '$35,000' }
+        };
+
+        function openCar(carId) {
+            const car = cars[carId];
+            const details = document.getElementById('carDetails');
+            details.innerHTML = `<h2>${car.name}</h2><p>Year: ${car.year}</p><p>Price: ${car.price}</p>`;
+            details.classList.add('active');
+        }
+    </script>
+</body>
+</html>
